@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo Química com Flashcards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Aprendendo Química com Flashcards</h1>
+    </header>
+    <div id="subtitulo-container">
+        <h3 id="subtitulo"> ........................</h3>
+    </div>
+    
+    <div id="home" class="tela-inicial">
+        <h2 style="color: rgb(10, 18, 87);">Selecione um Tema:</h2>
+        <div class="botoes-temas">
+            <button onclick="mostrarFlashcards('nomenclatura')">Nomenclatura</button>
+            <button onclick="mostrarFlashcards('reacoes')">Reações Endotérmicas e Exotérmicas</button> 
+            <button onclick="mostrarFlashcards('organica')">Química Orgânica</button>
+        </div>
+    </div>
+
+    <div id="flashcards" style="display: none;">
+        <div id="container">
+            <!-- Os flashcards serão inseridos aqui dinamicamente -->
+        </div>
+        <button onclick="voltarParaHome()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

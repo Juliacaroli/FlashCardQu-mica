@@ -1,0 +1,236 @@
+:root {
+    --text-color: #DBE4EF;
+    --card-front-color: #ffffff;
+    --card-back-color: #4f76a5;
+}
+
+body {
+    background: url('img/imagem\ de\ fundo.webp') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+#container {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+}
+
+.cartao {
+    margin: 1rem 1rem;
+    height: 20rem; /* Mantendo a altura dos cartões */
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+    perspective: 1000px; /* Para permitir o efeito 3D */
+    border-radius: 10px;
+}
+
+.cartao__conteudo {
+    background-color: var(--card-front-color);
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+    border-radius: 20px;
+}
+
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    font-size: 2rem;
+    color: #144480;
+}
+
+.cartao__conteudo__pergunta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.cartao__conteudo__pergunta img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover; /* Altera para 'cover' para que a imagem preencha o espaço sem distorcer */
+    border-radius: 10px;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+    background-color: rgba(0, 244, 191, 0.2);
+    border: 4px solid var(--card-back-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+ 
+
+header {
+    background-color: #4f76a5; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 1rem; /* Espaçamento interno */
+    margin-bottom: 2rem; /* Espaço entre o cabeçalho e o contêiner */
+    border-radius: 10px; /* Bordas arredondadas do cabeçalho */
+}
+
+header h2 {
+    background-color: #4f76a5;
+    font-size: 1.5rem; /* Tamanho da fonte do segundo cabeçalho */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0.5rem 0; /* Espaçamento interno */
+}
+
+.nomenclatura {
+    background-color: #f0f4c3; /* Altere para a cor desejada */
+    padding: 1rem; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    border-radius: 8px; /* Arredondar bordas, se desejado */
+    margin: 2rem 0; /* Espaço acima e abaixo */
+}
+
+#subtitulo-container {
+    background-color: rgb(248, 247, 184); /* Fundo branco com transparência */
+    padding: 1rem;
+    border-radius: 8px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto */
+    margin: 1rem auto; /* Espaço acima e abaixo */
+    width: 80%; /* Define a largura do contêiner do subtítulo */
+    display: block; /* Visível por padrão */
+}
+
+/* Ocultar o subtitulo-container na tela inicial */
+.tela-inicial #subtitulo-container {
+    display: none; /* Oculta o subtitulo-container na tela inicial */
+}
+
+/* Estilo para o subtítulo */
+#subtitulo {
+    color: #144480; /* Cor do texto */
+    font-size: 1.2rem;
+    margin: 0; /* Remove a margem padrão */
+}
+
+/* Oculta o subtítulo na tela inicial */
+.tela-inicial #subtitulo-container {
+    display: none; /* Oculta o contêiner do subtítulo na tela inicial */
+}
+
+.nomenclatura h3 {
+    font-size: 1.2rem; /* Tamanho da fonte do novo texto */
+    color: #144480; /* Cor do texto */
+    margin: 0; /* Remove a margem padrão */
+}
+
+
+@media (max-width: 560px) {
+    body {
+        background: url('img/Mobile.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .cartao {
+        flex: 1 0 calc(100% - 1rem);
+    }
+
+    .cartao__conteudo__pergunta img {
+        max-width: 80%; /* Ajusta o tamanho da imagem em dispositivos móveis */
+    }
+}
+
+.tela-inicial {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 2rem auto;
+    width: 80%;
+}
+
+.botoes-temas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.botoes-temas button {
+    padding: 1rem 2rem;
+    background-color: #4f76a5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Animação de zoom nos botões dos temas */
+.botoes-temas button {
+    padding: 1rem 2rem;
+    background-color: #4f76a5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s ease; /* Adicionando transição */
+}
+
+/* Efeito de zoom ao passar o mouse */
+.botoes-temas button:hover {
+    transform: scale(1.1); /* Efeito de zoom */
+    background-color: #3b5a7a;
+}
+
+.botoes-temas button:hover {
+    background-color: #3b5a7a;
+}
+
+/* Estilo para o botão de voltar */
+#flashcards button {
+    padding: 1rem 2rem;
+    background-color: #4f76a5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: relative;
+    transition: transform 0.3s ease;
+    margin-top: 2rem; /* Espaçamento acima do botão */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Efeito de zoom ao passar o mouse */
+#flashcards button:hover {
+    transform: scale(1.1);
+    background-color: #3b5a7a;
+}
+
+
+/* Destaque adicional para o botão */
+#flashcards button:focus {
+    outline: none;
+    box-shadow: 0 0 10px 5px rgba(79, 118, 165, 0.5); /* Adiciona um brilho ao redor do botão */
+}
+
+
+
+ 
